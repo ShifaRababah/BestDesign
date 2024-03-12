@@ -1,0 +1,100 @@
+﻿@model BestDesign.Models.Contact
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="page-header" style="background: url(assets/img/banner1.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-wrapper">
+                    <h2 class="product-title">Evaluation</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="#">Home /</a></li>
+                        <li class="current">Add Evaluation</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section id="content" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-xs-12">
+
+                <form asp-action="Create" class="contact-form" data-toggle="validator" novalidate="true">
+                    <h2 class="contact-title">
+                        Send Message Us
+                    </h2>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <input asp-for="Name" type="text" class="form-control" placeholder="Name" required="" data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <input asp-for="Email" type="email" class="form-control"  placeholder="Email" required="" data-error="Please enter your email">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <input asp-for="Subject" type="text" class="form-control"   placeholder="Subject" required="" data-error="Please enter your subject">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+<textarea asp-for="Message" class="form-control" placeholder="Massage" rows="7" data-error="Write your message" required=""></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-common disabled" style="pointer-events: all; cursor: pointer;">Send</button>
+                            <div id="msgSubmit" class="h3 text-center hidden"></div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-12">
+          
+                <div class="information">
+                    <h3>Contact Info</h3>
+                    <div class="contact-datails">
+                        <ul class="list-unstyled info">
+                            <li><span>Address : </span><p> 00962 St Jordan Place, Amman, DC 45 Fr 45</p></li>
+                            <li><span>Email : </span><p><a href="#">support@gmail.com</a></p></li>
+                            <li><span>Phone : </span><p>+962 777 7777 &amp; +962 799 9999</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

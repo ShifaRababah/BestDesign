@@ -1,0 +1,126 @@
+﻿@model IEnumerable<BestDesign.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+
+<div class="page-header" style="background: url(assets/img/banner1.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-wrapper">
+                    <h2 class="product-title">My Ads</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="#">Home /</a></li>
+                        <li class="current">My Ads</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="content" class="section-padding">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-4 col-lg-3 page-sidebar">
+            <aside>
+                <div class="sidebar-box">
+                    <div class="user">
+                        <figure>
+                            <a style="width: 100px; height: 100px;" alt=""></a>
+                        </figure>
+                        <div class="usercontent">
+                            <h3>Customer Dashboard</h3>
+
+                        </div>
+                    </div>
+                    <nav class="navdashboard">
+                        <ul>
+                            <li>
+                                <a href="/Products/Create">
+                                    <i class="lni-dashboard"></i>
+                                    <span>Post an Ads</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Products/MyAds">
+                                    <i class="lni-layers"></i>
+                                    <span>My Ads</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/Carts/Index">
+                                    <i class="lni-wallet"></i>
+                                    <span>My Cart</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </aside>
+        </div>
+        <div class="col-sm-12 col-md-8 col-lg-9">
+            <div class="page-content">
+                <div class="inner-box">
+                    <div class="dashboard-box">
+                        <h2 class="dashbord-title">My Ads</h2>
+                    </div>
+                    <div class="dashboard-wrapper">
+
+                        <table class="table table-responsive dashboardtable tablemyads">
+                            <thead>
+                                <tr>
+
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+
+                                    <th>Price</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model)
+                            {
+                                    <tr data-category="active">
+
+
+                                        <td class="photo"><img class="img-fluid" src="~/Imgs/@Html.DisplayFor(modelItem => item.Image)" alt=""></td>
+                                        <td data-title="Title">
+                                            <h3> @Html.DisplayFor(modelItem => item.Title)</h3>
+
+                                        </td>
+                                        <td data-title="Category"><span class="adcategories"> @Html.DisplayFor(modelItem => item.Topic)</span></td>
+
+                                        <td data-title="Price">
+                                            <h3> @Html.DisplayFor(modelItem => item.Price)</h3>
+                                        </td>
+                                        <td data-title="Action">
+                                            <div class="btns-actions">
+
+                                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn-action btn-delete"><i class="lni-trash"></i></a>
+
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                            }
+                            </tbody>
+                        </table>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>

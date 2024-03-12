@@ -1,0 +1,55 @@
+﻿@model List<Product>
+
+<div class="page-header" style="background: url(assets/img/banner1.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-wrapper">
+                    <h2 class="product-title">Products</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="#">Home /</a></li>
+                        <li class="current">Products</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="featured section-padding">
+    <div class="container">
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+                    <div class="featured-box">
+                        <figure>
+
+                            <a href="#"><img class="img-fluid" src="~/Imgs/@item.Image" alt="" style="width:350px;height:300px;"></a>
+                        </figure>
+                        <div class="feature-content" style="width:350px;">
+
+                            <h4><a href="">@item.Title</a></h4>
+                            <div class="row container">
+                                <p class="dsc">Designed By : &nbsp; </p>
+
+                                <h4><a href="/Home/GetProductsByUser/@item.UserId">@item.UserId</a></h4>
+                            </div>
+
+                            <p class="dsc" style="height:20px">@item.Topic</p>
+                            <p class="dsc" style="height:10px">@item.Date</p>
+
+                     
+                            <div class="listing-bottom">
+                                <h3 class="price float-left">$@item.Price</h3>
+                                <a href="/Home/GetProductsByUser/@item.UserId" class="btn btn-common float-right">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</section>
